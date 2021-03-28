@@ -19,12 +19,13 @@ WORKDIR /pirds_build
 RUN mkdir pirds_library
 COPY pirds_library/* pirds_library/
 WORKDIR /pirds_build/pirds_library
-RUN rm PIRDS.o
+# RUN rm PIRDS.o
+RUN touch PIRDS.cpp
 RUN make
 RUN cp PIRDS.o /pirds_build/PIRDS.o
 COPY logger_src/*.h /pirds_build/
 COPY logger_src/*.c /pirds_build/
-COPY logger_src/0Logfile.127.0.0.1 /pirds_build/pirds_library/
+COPY logger_src/0Logfile.192.168.1.169.test_file_name.20200627181744 /pirds_build/pirds_library/
 COPY logger_src/Makefile /pirds_build
 WORKDIR /pirds_build
 RUN make
