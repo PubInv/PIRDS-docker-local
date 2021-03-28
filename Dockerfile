@@ -25,7 +25,6 @@ RUN make
 RUN cp PIRDS.o /pirds_build/PIRDS.o
 COPY logger_src/*.h /pirds_build/
 COPY logger_src/*.c /pirds_build/
-COPY logger_src/0Logfile.192.168.1.169.test_file_name.20200627181744 /pirds_build/pirds_library/
 COPY logger_src/Makefile /pirds_build
 WORKDIR /pirds_build
 RUN make
@@ -33,7 +32,8 @@ RUN a2ensite pirdslogger.org.conf
 RUN a2enmod cgi
 RUN cp pirds_logger /var/www/cgi-bin
 RUN cp pirds_webcgi /var/www/cgi-bin
-COPY logger_src/0Logfile.* /data
+RUN mkdir /data
+# COPY logger_src/0Logfile.* /data
 COPY logger_src/favicon.ico /var/www/html
 RUN cp /var/www/cgi-bin/pirds_webcgi /var/www/cgi-bin/index.cgi
 COPY breath_plot.html /var/www/html
