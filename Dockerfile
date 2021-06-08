@@ -5,7 +5,7 @@ RUN apt-get update
 RUN apt-get install apache2 -y
 RUN apt-get install apache2-utils -y
 RUN apt-get install -y coreutils
-RUN apt-get install -y emacs
+#RUN apt-get install -y emacs
 RUN apt-get install -y less
 RUN apt-get install -y build-essential
 RUN apt-get install -y net-tools
@@ -36,17 +36,20 @@ RUN mkdir /data
 # COPY logger_src/0Logfile.* /data
 COPY logger_src/favicon.ico /var/www/html
 RUN cp /var/www/cgi-bin/pirds_webcgi /var/www/cgi-bin/index.cgi
+
 COPY breath_plot.html /var/www/html
 COPY SevenInchEl14TS.html /var/www/html
+COPY vent.html /var/www/html
 
 RUN mkdir /var/www/html/css
 RUN mkdir /var/www/html/js
-COPY css/* /var/www/html/css
-COPY js/* /var/www/html/js
-
+COPY css/* /var/www/html/css/
+COPY js/* /var/www/html/js/
 
 COPY respiration_math.js /var/www/html/js
 COPY breath_plot_ctl.js /var/www/html/js
+COPY vent-output.js /var/www/html/js
+COPY vent-input.js /var/www/html/js
 
 COPY SevenInchEl14TS.css /var/www/html/css
 COPY standard.css /var/www/html/css
