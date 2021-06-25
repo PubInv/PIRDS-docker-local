@@ -24,7 +24,7 @@ There are two versions of the pirds_webcgi (c program and bash script) - both ar
 
 # Running the *pirds_logger*
 
-The program "pirds_logger" is pretty simple. Just run it; it listents on port 6111
+The program "pirds_logger" is pretty simple. Just run it; it listen on port 6111
 by default.
 
 Running it with a VenMon (or any other program that write PIRDS data events on separate lines to a port via UDP) automatically logs PIRDS events into
@@ -35,7 +35,7 @@ a file that looks like:
 (base on your ip address.) This file contains PIRDS data organized by the
 time that they come in (NOT the important "ms" field in the event.)
 
-That's all the logger does; it's only interacton with the web server is the log file produced.
+That's all the logger does; it's only interaction with the web server is the log file produced.
 
 # Recommended Usage of the Web Server
 
@@ -85,7 +85,7 @@ data to the log file, this will be live.
 >         # include a line for only one particular virtual host. For example the
 >         # following line enables the CGI configuration for this host only
 >         # after it has been globally disabled with "a2disconf".
->         #Include conf-available/serve-cgi-bin.conf
+>         # Include conf-available/serve-cgi-bin.conf
 >
 >
 >
