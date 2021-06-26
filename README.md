@@ -33,11 +33,11 @@ can be found in the [VentDisplay](https://github.com/PubInv/vent-display) repo.
 >
 
 Basic usage is:
-1. Build the docker image from this repo and start it from the repo. This location should have a directory sub-structure: logger_src/data, which will be where the log files will be found when you are done. On a GNU/Linux system or a Mac, \`wd\` will expand to the absolute path where you are (this repo). On a Windows machine, you may have to enter a full path there instead.
+1. Build the docker image from this repo and start it from the repo. This location should have a directory sub-structure: logger_src/data, which will be where the log files will be found when you are done. On a GNU/Linux system or a Mac, `\wd\` will expand to the absolute path where you are (this repo). On a Windows machine, you may have to enter a full path there instead.
 2. Plug in a PIRDS generating devices on the serial port (either VentMon or a VentOS device.)
 3. Start the *serialserver.js* program found else where, point it at the local instance of the UDP port *6111* (matching above). You will have to know the name of your serial port!
 4. Point a browser at *localhost:8081* to see a list of data files. The link at the top will take you to VentDisplay rendering live data from your PIRDS-producing device.
-5. When you stop the docker image (or before, really), in logger_src/data you will find the a file named something like: *0Logfile.172.17.0.1*  If you have two dockder images running, the name could be slightly different. This is a log file from your run contaning the entire (possibly multi-day log). You may wish to copy this to a convenient area.
+5. When you stop the docker image (or before, really), in `logger_src/data` you will find a file named something like: *0Logfile.172.17.0.1*  If you have two docker images running, the name could be slightly different. This is a log file from your run contaning the entire (possibly multi-day log). You may wish to copy this to a convenient area.
 
 The PIRDS log file is fully documented. It is our intention to make a long term analysis program that can analyze weeks of data. However, this has not yet been written.
 
